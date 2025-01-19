@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
@@ -12,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class DataLorePage {
     WebDriver driver;
+    private final Logger log = LoggerFactory.getLogger(DataLorePage.class);
 
     @FindBy(css = ".menu-second-title-box__title")
     private WebElement pageTitle;
@@ -26,23 +29,24 @@ public class DataLorePage {
     private WebElement getADemoButton;
 
     public boolean checkTitle() {
-        System.out.println("Проверка активности кнокпи-заголовка");
+        log.info("Проверка активности кнокпи-заголовка");
         return pageTitle.isEnabled();
     }
 
     public int switcherHasFourElements() {
-        System.out.println("Проверка наличия элемента на странице");
+        log.info("Проверка наличия элемента на странице");
         assertTrue(switcher.isEnabled(), "Свитчер доступен");
-        System.out.println("Получение элементов свитчера");
+        log.info("Получение элементов свитчера");
         int count = pieceSwitcher.size();
-        System.out.println("Кол-во элементов в свитчере: " + count);
+        System.out.println( + count);
+        log.info("Кол-во элементов в свитчере: {}",count);
         return count;
     }
 
     public void clickDemoButton() {
-        System.out.println("Проверка наличия кнопки Demo на странице");
+        log.info("Проверка наличия кнопки Demo на странице");
         assertTrue(getADemoButton.isEnabled(), "Кнопка не доступна");
-        System.out.println("Клик по кнопке для перехода на страницу обратной связи");
+        log.info("Клик по кнопке для перехода на страницу обратной связи");
         getADemoButton.click();
     }
 
