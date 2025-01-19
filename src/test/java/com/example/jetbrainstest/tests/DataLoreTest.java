@@ -6,6 +6,8 @@ import io.qameta.allure.Step;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Collections;
 import java.util.List;
@@ -14,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class DataLoreTest extends BaseTest {
+    private final Logger log = LoggerFactory.getLogger(DataLoreTest.class);
     private DataLorePage dataLorePage;
     private DataLoreFormPage dataLoreFormPage;
 
@@ -46,7 +49,7 @@ public class DataLoreTest extends BaseTest {
         dataLorePage.clickDemoButton();
         List<String> actualMessages = dataLoreFormPage.checkAndGetErrorMessagesAfterClick();
         List<String> expectedMessages = Collections.nCopies(3, "This field is required");
-        System.out.println("Проверяем текст предупреждений");
+        log.info("Проверяем текст предупреждений");
         assertEquals(expectedMessages, actualMessages, "Тексты предупреждений не совпадают");
     }
 }
