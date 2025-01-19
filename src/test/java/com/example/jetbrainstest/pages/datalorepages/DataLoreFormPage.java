@@ -21,28 +21,24 @@ public class DataLoreFormPage {
     @FindBy(css = "._errorMessage_1uv984h_4, ._errorMessage_10bo8mm_596")
     private List<WebElement> errorMessages;
 
-    public List<String> checkMessagesAfterClick() {
+    public List<String> checkAndGetErrorMessagesAfterClick() {
         System.out.println("Проверяем доступность кнопки подтверждения отправки формы");
         assertTrue(submitButton.isEnabled(), "Кнопка не активна");
 
         System.out.println("Клик по кнопке подтвержения отправки формы");
         submitButton.click();
 
-        // Создаём список для хранения сообщений
         List<String> messages = new ArrayList<>();
-
         System.out.println("Получаем кол-во предупреждений");
         int i = errorMessages.size();
         int t = 3;
-        assertEquals(t, i, "Ожидаемое кол-во предупреждений:" + i + "Полученое кол-во предупреждений:" + t);
+        assertEquals(t, i, "Ожидаемое кол-во предупреждений: " + i + " Полученое кол-во предупреждений: " + t);
 
         System.out.println("Получаем текст каждого предупреждения");
         for (; i > 0; i--) {
-            String text = errorMessages.get(i - 1).getText(); // Получаем текст ошибки
-            messages.add(text); // Добавляем текст в список
+            String text = errorMessages.get(i - 1).getText();
+            messages.add(text);
         }
-
-        // Возвращаем список сообщений
         return messages;
     }
 

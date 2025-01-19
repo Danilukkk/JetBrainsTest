@@ -1,6 +1,5 @@
 package com.example.jetbrainstest.pages.datalorepages;
 
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -31,7 +30,6 @@ public class DataLorePage {
         return pageTitle.isEnabled();
     }
 
-    //
     public int switcherHasFourElements() {
         System.out.println("Проверка наличия элемента на странице");
         assertTrue(switcher.isEnabled(), "Свитчер доступен");

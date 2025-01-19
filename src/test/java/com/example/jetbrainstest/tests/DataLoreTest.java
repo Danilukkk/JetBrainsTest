@@ -44,7 +44,7 @@ public class DataLoreTest extends BaseTest {
     @DisplayName("Появление предупреждений о бязательном заполнении полей после клика по кнопке")
     public void getBackForm() {
         dataLorePage.clickDemoButton();
-        List<String> actualMessages = dataLoreFormPage.checkMessagesAfterClick();
+        List<String> actualMessages = dataLoreFormPage.checkAndGetErrorMessagesAfterClick();
         List<String> expectedMessages = Collections.nCopies(3, "This field is required");
         System.out.println("Проверяем текст предупреждений");
         assertEquals(expectedMessages, actualMessages, "Тексты предупреждений не совпадают");
