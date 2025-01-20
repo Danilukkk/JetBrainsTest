@@ -18,7 +18,7 @@ public class DataLoreFormPage {
     WebDriver driver;
     private final Logger log = LoggerFactory.getLogger(DataLoreFormPage.class);
 
-    @FindBy(css = "[data-test='submit-button']")
+    @FindBy(xpath = "//*[@data-test='submit-button']")
     private WebElement submitButton;
 
     @FindBy(xpath = "//div/div[contains(normalize-space(text()), 'This field is required')]")
