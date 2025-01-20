@@ -18,10 +18,10 @@ public class DataLoreFormPage {
     WebDriver driver;
     private final Logger log = LoggerFactory.getLogger(DataLoreFormPage.class);
 
-    @FindBy(css = ".wt-col-6 button")
+    @FindBy(css = "[data-test='submit-button']")
     private WebElement submitButton;
 
-    @FindBy(css = "._errorMessage_1uv984h_4, ._errorMessage_10bo8mm_596")
+    @FindBy(xpath = "//div/div[contains(normalize-space(text()), 'This field is required')]")
     private List<WebElement> errorMessages;
 
     public List<String> checkAndGetErrorMessagesAfterClick() {

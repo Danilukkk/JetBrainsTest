@@ -26,28 +26,28 @@ public class DataLorePage {
     private List<WebElement> pieceSwitcher;
 
     @FindBy(xpath = "//div[@class = 'datalore-registration-form']/a")
-    private WebElement getADemoButton;
+    private WebElement getDemoButton;
 
-    public boolean checkTitle() {
+    public boolean checkAndGetTitle() {
         log.info("Проверка активности кнокпи-заголовка");
         return pageTitle.isEnabled();
     }
 
-    public int switcherHasFourElements() {
+    public int GetCountElementsInSwitcher() {
         log.info("Проверка наличия элемента на странице");
         assertTrue(switcher.isEnabled(), "Свитчер доступен");
         log.info("Получение элементов свитчера");
         int count = pieceSwitcher.size();
-        System.out.println( + count);
-        log.info("Кол-во элементов в свитчере: {}",count);
+        System.out.println(+count);
+        log.info("Кол-во элементов в свитчере: {}", count);
         return count;
     }
 
     public void clickDemoButton() {
         log.info("Проверка наличия кнопки Demo на странице");
-        assertTrue(getADemoButton.isEnabled(), "Кнопка не доступна");
+        assertTrue(getDemoButton.isEnabled(), "Кнопка не доступна");
         log.info("Клик по кнопке для перехода на страницу обратной связи");
-        getADemoButton.click();
+        getDemoButton.click();
     }
 
     public DataLorePage(WebDriver driver) {

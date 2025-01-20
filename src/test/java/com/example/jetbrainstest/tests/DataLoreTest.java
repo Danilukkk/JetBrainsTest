@@ -33,19 +33,19 @@ public class DataLoreTest extends BaseTest {
     @Test
     @DisplayName("Проверка доступности кнопки-заголовка")
     public void checkPageIsAvailable() {
-        assertTrue(dataLorePage.checkTitle(), "Кнопка не доступна");
+        assertTrue(dataLorePage.checkAndGetTitle(), "Кнопка не доступна");
     }
 
     @Test
     @DisplayName("Проверка количества элементов в свитчере")
-    public void switcherCheck() {
+    public void numberElementsOfSwitcherCheck() {
         int exp = 4;
-        assertEquals(exp, dataLorePage.switcherHasFourElements(), "Свитчер не содержит 4 элемента");
+        assertEquals(exp, dataLorePage.GetCountElementsInSwitcher(), "Свитчер не содержит 4 элемента");
     }
 
     @Test
     @DisplayName("Появление предупреждений о бязательном заполнении полей после клика по кнопке")
-    public void getBackForm() {
+    public void errorMessagesInGetBackForm() {
         dataLorePage.clickDemoButton();
         List<String> actualMessages = dataLoreFormPage.checkAndGetErrorMessagesAfterClick();
         List<String> expectedMessages = Collections.nCopies(3, "This field is required");
