@@ -38,7 +38,7 @@ public class DataLorePage {
         assertTrue(switcher.isEnabled(), "Свитчер доступен");
         log.info("Получение элементов свитчера");
         int count = pieceSwitcher.size();
-        log.info("Кол-во элементов в свитчере: " + count);
+        log.infoWithScreenshot("Кол-во элементов в свитчере: " + count);
         return count;
     }
 
