@@ -1,12 +1,11 @@
 package com.example.jetbrainstest.tests;
 
+import com.example.jetbrainstest.AllureLogger;
 import com.example.jetbrainstest.pages.datalorepages.DataLoreFormPage;
 import com.example.jetbrainstest.pages.datalorepages.DataLorePage;
-import io.qameta.allure.Step;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Collections;
@@ -16,15 +15,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class DataLoreTest extends BaseTest {
-    private final Logger log = LoggerFactory.getLogger(DataLoreTest.class);
+    private final AllureLogger log = new AllureLogger(LoggerFactory.getLogger(DataLoreTest.class));
     private DataLorePage dataLorePage;
     private DataLoreFormPage dataLoreFormPage;
 
     @BeforeEach
     @Override
-    @Step("Переход на страницу DataLore")
     public void setUp() {
         super.setUp();
+        log.info("Переход на страницу DataLore");
         getDriver().get("https://www.jetbrains.com/datalore/");
         dataLorePage = new DataLorePage(getDriver());
         dataLoreFormPage = new DataLoreFormPage(getDriver());

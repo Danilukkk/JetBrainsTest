@@ -1,10 +1,10 @@
 package com.example.jetbrainstest.pages.datalorepages;
 
+import com.example.jetbrainstest.AllureLogger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 //https://www.jetbrains.com/datalore/get-in-touch/
 public class DataLoreFormPage {
     WebDriver driver;
-    private final Logger log = LoggerFactory.getLogger(DataLoreFormPage.class);
+    private final AllureLogger log = new AllureLogger(LoggerFactory.getLogger(DataLoreFormPage.class));
 
     @FindBy(xpath = "//*[@data-test='submit-button']")
     private WebElement submitButton;

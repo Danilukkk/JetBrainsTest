@@ -1,10 +1,10 @@
 package com.example.jetbrainstest.pages.datalorepages;
 
+import com.example.jetbrainstest.AllureLogger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class DataLorePage {
     WebDriver driver;
-    private final Logger log = LoggerFactory.getLogger(DataLorePage.class);
+    private final AllureLogger log = new AllureLogger(LoggerFactory.getLogger(DataLorePage.class));
 
     @FindBy(css = ".menu-second-title-box__title")
     private WebElement pageTitle;
@@ -38,8 +38,7 @@ public class DataLorePage {
         assertTrue(switcher.isEnabled(), "Свитчер доступен");
         log.info("Получение элементов свитчера");
         int count = pieceSwitcher.size();
-        System.out.println(+count);
-        log.info("Кол-во элементов в свитчере: {}", count);
+        log.info("Кол-во элементов в свитчере: " + count);
         return count;
     }
 
