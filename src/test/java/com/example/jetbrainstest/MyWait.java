@@ -3,6 +3,7 @@ package com.example.jetbrainstest;
 import com.example.jetbrainstest.tests.BaseTest;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -30,6 +31,16 @@ public class MyWait {
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
+    public boolean checkStatement(WebElement element) {
+        LOG.info("Ждем " + secondsToWait + " секунд, пока элемент станет невидимым");
+        try {
+            return wait.until(ExpectedConditions.invisibilityOf(element));
+        } catch (TimeoutException e) {
+            LOG.warn("Элемент остался на странице");
+            return false;
+        }
+    }
+
     public WebElement visible(WebElement element) {
         LOG.info("Ждем " + secondsToWait + " секунд пока элемент станет видимым " + element.toString());
         return wait.until(ExpectedConditions.visibilityOf(element));
@@ -43,6 +54,8 @@ public class MyWait {
     public WebElement locatorVisible(By element) {
         LOG.info("Ждем " + secondsToWait + " секунд пока локатор появится");
         return wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+
+
     }
 
 }

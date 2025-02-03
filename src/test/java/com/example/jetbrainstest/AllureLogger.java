@@ -26,5 +26,8 @@ public class AllureLogger {
         logger.error(logText);
     }
 
-
+    @Step("{logText}")
+    public void warn(String logText) {
+        logger.error(logText);
+    }
 }
