@@ -14,12 +14,11 @@ public class DataConnectionsPage {
     @FindBy(xpath = "//div/h1")
     private WebElement headerDataConnectionsPage;
 
-
     public boolean checkDataTitle() {
-       return headerDataConnectionsPage.isDisplayed();
+        return headerDataConnectionsPage.isDisplayed();
     }
 
-    public DataConnectionsPage(WebDriver driver){
+    public DataConnectionsPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
