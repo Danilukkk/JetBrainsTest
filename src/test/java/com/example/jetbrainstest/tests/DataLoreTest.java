@@ -1,7 +1,7 @@
 package com.example.jetbrainstest.tests;
 
 import com.example.jetbrainstest.AllureLogger;
-import com.example.jetbrainstest.MyExtension;
+import com.example.jetbrainstest.DfExtension;
 import com.example.jetbrainstest.pages.datalorepages.DataConnectionsPage;
 import com.example.jetbrainstest.pages.datalorepages.DataLoreFormPage;
 import com.example.jetbrainstest.pages.datalorepages.DataLorePage;
@@ -16,7 +16,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@ExtendWith(MyExtension.class)
+@ExtendWith(DfExtension.class)
 public class DataLoreTest extends BaseTest {
     private final AllureLogger log = new AllureLogger(LoggerFactory.getLogger(DataLoreTest.class));
     private DataLorePage dataLorePage;
